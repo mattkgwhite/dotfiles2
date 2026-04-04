@@ -42,7 +42,7 @@ brew "python@3.11"
 brew "pyenv"
 brew "ruby"
 brew "ruby-install"
-brew "rust"
+# brew "rust" # Removed in favour of the official installer from rust-lang.org
 brew "sqlite"
 brew "sops"
 brew "starship"
