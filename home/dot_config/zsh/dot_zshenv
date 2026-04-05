@@ -8,7 +8,13 @@ export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 
 export EDITOR='nvim'
 export KEYTIMEOUT=1
-export TERM="xterm-256color"
+
+# Fake KITTY_WINDOW_ID when running inside Ghostty so kitty graphics tools
+# auto-detect support (Ghostty supports the kitty graphics protocol).
+if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+  export KITTY_WINDOW_ID=${KITTY_WINDOW_ID:-1}
+  export TIMG_PIXELATION=k
+fi
 
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=15
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -18,7 +24,7 @@ DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
-export PATH="${PATH}:${HOME}/.scripts:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
 export GPG_TTY=$(tty)
 
 export HOMEBREW_NO_ENV_HINTS=true
@@ -38,14 +44,17 @@ export HOMEBREW_CASK_OPTS="--require-sha"
 
 
 export MISE_PYTHON_UV_VENV_AUTO=true
+export OPENCODE_ENABLE_EXA=1
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
 
 # Set the list of directories that zsh searches for commands.
 path=(
+  ${OPENCODE:+$XDG_DATA_HOME/opencode-shims}
   $HOME/{,s}bin(N)
   $HOME/.local/{,s}bin(N)
+  $HOME/.scripts(N)
   {$HOME,/home/linuxbrew}/.linuxbrew/bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
