@@ -1,13 +1,9 @@
-[env]
-_.python.venv = { path = "{{config_root}}/.venv", create = true }
-
 [tools]
-python = "3.13"
+{{ if not .codespaces -}}
 go = "latest"
 node = "latest"
-"npm:hrvst-cli" = "latest"
 ruby = "latest"
-uv = "latest"
+{{ end -}}
 
 [settings]
 experimental = true
