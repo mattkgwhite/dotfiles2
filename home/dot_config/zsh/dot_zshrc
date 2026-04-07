@@ -61,6 +61,33 @@ unset _rc
 #     ;;
 # esac
 
+# plugins
+
+plugins=(
+1password
+argocd
+aws
+bat
+docker
+docker-compose
+dotenv
+fzf
+git
+golang
+helm
+kubectl
+minikube
+npm
+nvm
+pip
+pipenv
+python
+sudo
+tmux
+vault
+vscode
+zsh-completions
+)
 
 #oh-my-posh
 eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/mattkgwhite/dotfiles/refs/heads/main/files/omp-configs/easy-term.omp.json')"
