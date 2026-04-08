@@ -49,7 +49,9 @@ alias avim='NVIM_APPNAME=astronvim nvim'
 # LunarVim already has its own command
 alias lvim='lvim'
 
-
 # Personal Aliases
 #export VAULT_ADDR=https://vault.*
 export VAULT_ADDR=localhost:8200
+
+#1password 
+alias opsignin='eval $(op signin)'
